@@ -206,23 +206,6 @@ class Game extends React.Component {
             <button className="button" onClick={this.handleClear}>Clear</button>
             <h4>Generation: {this.state.genCount}</h4>
             </div>
-            <div className = "Rules">
-            <h4>Game Rules</h4>
-            <ol>
-            <li>Any live cell with fewer than two live neighbors dies, as if caused by under population.</li>
-            <li>Any live cell with two or three live neighbors lives on to the next generation.</li>
-            <li>Any live cell with more than three live neighbors dies, as if by overpopulation.</li>
-            <li>Any dead cell with exactly three live neighbors becomes a live cell, as if by reproduction.</li>
-            </ol>
-            </div>
-            <div className = "About">
-             <h4>About</h4>
-             <p>Conway's Game of Life is an imaginary cellular automation made by the british mathematician
-            John Horton Conway in 1970.This is a zero-player game, meaning its evolution is determined by its initial state
-            ,requiring no further input.The reason it is called a game is because people who play the game can set
-            it up in different ways to make it do different things.It is on the of the first ever simulation games that
-            represent things that happen in real life.</p>
-            </div>
         </div>
         );
     }

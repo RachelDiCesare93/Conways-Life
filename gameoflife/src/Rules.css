@@ -1,0 +1,15 @@
+.Rules h4 {
+    text-align: center;
+}
+
+.Rules {
+    border-top: 2px dotted purple;
+    font-family: 'Coda', cursive;
+    font-size: 20px;
+    text-align: left;
+}
+
+ol {
+    margin: 0 auto;
+    width: 700px;
+    }

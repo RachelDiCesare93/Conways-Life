@@ -1,7 +1,7 @@
 import React from 'react';
 import './Game.css';
 
-const CELL_SIZE = 15;
+const CELL_SIZE = 20;
 const WIDTH = 800;
 const HEIGHT = 600;
 
@@ -23,6 +23,7 @@ class Cell extends React.Component {
 class Game extends React.Component {
     constructor() {
         super();
+        this.canvas = React.createRef();
         this.rows = HEIGHT/CELL_SIZE;
         this.cols = WIDTH/CELL_SIZE;
         this.board = this.makeEmptyBoard();
@@ -75,10 +76,12 @@ class Game extends React.Component {
         const elemOffset = this.getElementOffset();
         const offsetX = event.clientX - elemOffset.x;
         const offsetY = event.clientY - elemOffset.y;
-
+        let canvas = document.getElementById('canvas');
+        let rect = canvas.getBoundingClientRect();
         const x = Math.floor(offsetX / CELL_SIZE);
-        const y = Math.floor(offsetY / CELL_SIZE);
-
+        // const y = Math.floor(offsetY / CELL_SIZE);
+        let y = Number((Math.ceil((event.pageY - rect.top - window.scrollY) /CELL_SIZE))) - 1;
+        console.log(x,y)
         if (x >= 0 && x <= this.cols && y >= 0 && y <= this.rows) {
             this.board[y][x] = !this.board[y][x];
         }
@@ -182,7 +185,7 @@ class Game extends React.Component {
         const { isRunning } = this.state;
         return (
             <div>
-                <div className="Board"
+                <div id="canvas" className="Board" ref={this.canvas}
                 style={{width: WIDTH, height: HEIGHT,backgroundSize: `${CELL_SIZE}px ${CELL_SIZE}px`}}
                 onClick={this.handleClick}
                 ref={(n) => {this.boardRef = n; }}>

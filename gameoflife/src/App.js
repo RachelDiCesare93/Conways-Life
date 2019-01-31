@@ -12,6 +12,7 @@ class App extends Component {
      <div className="App">
         <h1>Conway's Game of Life- Rachel DiCesare</h1>
         <Route exact path="/" render={props => <Link to="/about">About</Link>} />
+        ||
         <Route exact path="/" render={props => <Link to="/rules">Rules</Link>} />
         <Route exact path="/" render={props => <Game />} />
         <Route path="/about" render={props => <About />} />
